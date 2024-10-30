@@ -1,0 +1,3 @@
+[submodule "ruby-exercises"]
+	path = ruby-exercises
+	url = git@github.com:TheOdinProject/ruby-exercises.git
