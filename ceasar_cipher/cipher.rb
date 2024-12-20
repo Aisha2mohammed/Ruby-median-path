@@ -16,5 +16,10 @@ def cipher(string,shift = 0,alphabet)
     else
       char
     end
+
   end
+  puts arrOfWord.join
+
 end
+
+cipher(value, shiftNum, alphabet)
