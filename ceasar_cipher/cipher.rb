@@ -13,6 +13,7 @@ def cipher(string,shift = 0,alphabet)
     if alphabet[char.to_sym]
       new_index = (alphabet[char.to_sym] + shift - 1) % 26 + 1
       alphabet.key(new_index)
+      puts arrOfWord
     else
       char
     end
