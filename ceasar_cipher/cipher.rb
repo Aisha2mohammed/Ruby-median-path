@@ -1,26 +1,22 @@
 alphabet = {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26}
+value = gets.chomp # Corrected from chomb to chomp
+shiftNum = gets.to_i # Removed unnecessary .chomb
 
-value = gets.chomb
-shiftNum = gets.to_i.chomb
-
-cipher(value,shiftNum)
-
-def cipher(string,shift = 0,alphabet) 
+def cipher(string, shift, alphabet)
   arrOfWord = string.split('')
-
-   
+  
+  # Map characters and apply the cipher logic
   arrOfWord.map! do |char|
-    if alphabet[char.to_sym]
+    if alphabet[char.to_sym] # Check if char exists in alphabet hash
       new_index = (alphabet[char.to_sym] + shift - 1) % 26 + 1
-      alphabet.key(new_index)
-      puts arrOfWord
+      alphabet.key(new_index) # Get the new shifted character
     else
-      char
+      char # Return non-alphabetic characters as-is
     end
-
   end
-  puts arrOfWord.join
-
+  
+  arrOfWord.join # Join the array into a string
 end
 
-cipher(value, shiftNum, alphabet)
+# Call cipher function and print the result
+puts cipher(value, shiftNum, alphabet)
