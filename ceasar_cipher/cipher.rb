@@ -15,8 +15,7 @@ def cipher(string, shift, alphabet)
     end
   end
   
-  arrOfWord.join # Join the array into a string
+  arrOfWord.join 
 end
 
-# Call cipher function and print the result
 puts cipher(value, shiftNum, alphabet)
