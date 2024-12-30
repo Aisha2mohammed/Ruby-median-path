@@ -15,9 +15,14 @@ def cipher(string, shift, alphabet)
     else
       char # Return non-alphabetic characters as-is
     end
-  end
-  
-  arrOfWord.join 
+  end.join 
 end
+
+
+# Input value and shift number
+value = gets.chomp
+shiftNum = gets.to_i
+# Call cipher function and print the result
+
 
 puts cipher(value, shiftNum, alphabet)
