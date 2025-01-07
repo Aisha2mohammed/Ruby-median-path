@@ -20,8 +20,6 @@ end
 # Input value and shift number
 value = gets.chomp
 shiftNum = gets.to_i
-# Call cipher function and print the result
 
-# Call cipher function and print the result
 
 puts cipher(value, shiftNum, alphabet)
