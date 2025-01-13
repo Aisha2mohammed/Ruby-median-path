@@ -2,24 +2,23 @@
 alphabet = ('a'..'z').each_with_index.map { |char, index| [char, index + 1] }.to_h
 alphabet_upper = ('A'..'Z').each_with_index.map { |char, index| [char, index + 1] }.to_h
 
-def cipher(string, shift, alphabet)
-  arrOfWord = string.split('')
-  
-  # Map characters and apply the cipher logic
-  arrOfWord.map! do |char|
-    if alphabet[char.to_sym] # Check if char exists in alphabet hash
-      new_index = (alphabet[char.to_sym] + shift - 1) % 26 + 1
-      alphabet.key(new_index) # Get the new shifted character
+def cipher(string, shift, lower_alphabet, upper_alphabet)
+  string.chars.map do |char|
+    if lower_alphabet[char] # Check if lowercase
+      new_index = (lower_alphabet[char] + shift - 1) % 26 + 1
+      lower_alphabet.key(new_index)
+    elsif upper_alphabet[char] # Check if uppercase
+      new_index = (upper_alphabet[char] + shift - 1) % 26 + 1
+      upper_alphabet.key(new_index)
     else
-      char  # Leave non-alphabetic characters as-is
+      char # Leave non-alphabetic characters as-is
     end
-  end.join 
+  end.join
 end
-
 
 # Input value and shift number
 value = gets.chomp
 shiftNum = gets.to_i
 
-
-puts cipher(value, shiftNum, alphabet)
+# Call cipher function and print the result
+puts cipher(value, shiftNum, alphabet, alphabet_upper)
