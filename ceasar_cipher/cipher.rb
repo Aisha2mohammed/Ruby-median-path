@@ -1,4 +1,4 @@
-# Dynamically generate the alphabet hashes
+# Dynamically generate the alphabet hashes for encryption
 alphabet = ('a'..'z').each_with_index.map { |char, index| [char, index + 1] }.to_h
 alphabet_upper = ('A'..'Z').each_with_index.map { |char, index| [char, index + 1] }.to_h
 
@@ -11,7 +11,7 @@ def cipher(string, shift, lower_alphabet, upper_alphabet)
       new_index = (upper_alphabet[char] + shift - 1) % 26 + 1
       upper_alphabet.key(new_index)
     else
-      char # Leave non-alphabetic characters as-is
+      char # Leave non-alphabetic characters as it -is
     end
   end.join
 end
